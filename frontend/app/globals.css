@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0f6e56;
+  --color-primary-hover: #0b5c49;
+  --color-primary-light: #e1f5ee;
+  --color-ink: #0b1f1a;
+  --color-surface: #ffffff;
+  --color-bg: #f7fbf9;
+  --color-border: #d7e6df;
+  --color-muted: #5f736d;
+  --color-accent: #e37a2e;
+  --color-warning: #ba7517;
+  --color-danger: #a32d2d;
+  --color-info: #1e5db0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--color-ink);
+  background: var(--color-bg);
+}
+
+::selection {
+  background: rgba(15, 110, 86, 0.15);
+}
+
+.auth-shell {
+  background-image:
+    radial-gradient(1200px 600px at 10% 10%, rgba(15, 110, 86, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 20%, rgba(227, 122, 46, 0.12), transparent 55%),
+    linear-gradient(180deg, #f7fbf9 0%, #eef5f2 100%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(215, 230, 223, 0.8);
+  box-shadow: 0 20px 60px rgba(11, 31, 26, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
