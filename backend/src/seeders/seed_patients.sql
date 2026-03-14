@@ -1,3 +1,12 @@
+delete from appointments
+where org_id = '11111111-1111-1111-1111-111111111111';
+
+delete from appointment_availability
+where org_id = '11111111-1111-1111-1111-111111111111';
+
+delete from patients
+where org_id = '11111111-1111-1111-1111-111111111111';
+
 insert into patients (
   id,
   user_id,
@@ -58,141 +67,6 @@ values
     true,
     '{"line1": "44 River Park", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380021"}'::jsonb,
     now() - interval '9 days'
-  ),
-  (
-    '88888888-8888-8888-8888-888888888888',
-    'f1111111-1111-1111-1111-111111111111',
-    '11111111-1111-1111-1111-111111111111',
-    'Aarti Singh',
-    '1990-05-12',
-    'female',
-    '+919812345678',
-    'aarti@example.com',
-    'ABHA-1004-2026',
-    'AB-',
-    true,
-    '{"line1": "27 Sunrise Residency", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380054"}'::jsonb,
-    now() - interval '8 days'
-  ),
-  (
-    '99999999-9999-9999-9999-999999999999',
-    'f2222222-2222-2222-2222-222222222222',
-    '11111111-1111-1111-1111-111111111111',
-    'Vikram Iyer',
-    '1984-08-09',
-    'male',
-    '+919899001122',
-    'vikram@example.com',
-    'ABHA-1005-2026',
-    'O-',
-    false,
-    '{"line1": "11 Cedar Plaza", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380058"}'::jsonb,
-    now() - interval '7 days'
-  ),
-  (
-    '12121212-1212-1212-1212-121212121212',
-    'f3333333-3333-3333-3333-333333333333',
-    '11111111-1111-1111-1111-111111111111',
-    'Neha Kulkarni',
-    '1995-12-03',
-    'female',
-    '+919988776655',
-    'neha@example.com',
-    'ABHA-1006-2026',
-    'A+',
-    true,
-    '{"line1": "4 Green Court", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380061"}'::jsonb,
-    now() - interval '6 days'
-  ),
-  (
-    '13131313-1313-1313-1313-131313131313',
-    'f4444444-4444-4444-4444-444444444444',
-    '11111111-1111-1111-1111-111111111111',
-    'Priyanka Menon',
-    '1979-03-25',
-    'female',
-    '+919701112233',
-    'priyanka.menon@example.com',
-    'ABHA-1007-2026',
-    'B-',
-    true,
-    '{"line1": "52 Lakeview Homes", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380060"}'::jsonb,
-    now() - interval '5 days'
-  ),
-  (
-    '14141414-1414-1414-1414-141414141414',
-    'f5555555-5555-5555-5555-555555555555',
-    '11111111-1111-1111-1111-111111111111',
-    'Manoj Patel',
-    '1972-10-14',
-    'male',
-    '+919722334455',
-    'manoj.patel@example.com',
-    'ABHA-1008-2026',
-    'A-',
-    false,
-    '{"line1": "73 Shanti Nagar", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380013"}'::jsonb,
-    now() - interval '4 days'
-  ),
-  (
-    '15151515-1515-1515-1515-151515151515',
-    'f6666666-6666-6666-6666-666666666666',
-    '11111111-1111-1111-1111-111111111111',
-    'Farah Khan',
-    '2001-01-30',
-    'female',
-    '+919633221144',
-    'farah.khan@example.com',
-    'ABHA-1009-2026',
-    'O+',
-    true,
-    '{"line1": "19 Harmony Towers", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380007"}'::jsonb,
-    now() - interval '3 days'
-  ),
-  (
-    '16161616-1616-1616-1616-161616161616',
-    'f7777777-7777-7777-7777-777777777777',
-    '11111111-1111-1111-1111-111111111111',
-    'Arjun Rao',
-    '1986-09-17',
-    'male',
-    '+919544113355',
-    'arjun.rao@example.com',
-    'ABHA-1010-2026',
-    'B+',
-    false,
-    '{"line1": "88 Orchid Square", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380051"}'::jsonb,
-    now() - interval '2 days'
-  ),
-  (
-    '17171717-1717-1717-1717-171717171717',
-    'f8888888-8888-8888-8888-888888888888',
-    '11111111-1111-1111-1111-111111111111',
-    'Meera Joshi',
-    '1998-04-08',
-    'female',
-    '+919455667788',
-    'meera.joshi@example.com',
-    'ABHA-1011-2026',
-    'AB+',
-    true,
-    '{"line1": "6 Tulip Gardens", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380014"}'::jsonb,
-    now() - interval '1 day'
-  ),
-  (
-    '18181818-1818-1818-1818-181818181818',
-    'f9999999-9999-9999-9999-999999999999',
-    '11111111-1111-1111-1111-111111111111',
-    'Devansh Trivedi',
-    '1993-06-11',
-    'male',
-    '+919366778899',
-    'devansh.trivedi@example.com',
-    'ABHA-1012-2026',
-    'O+',
-    true,
-    '{"line1": "33 Sapphire Arcade", "city": "Ahmedabad", "state": "Gujarat", "pincode": "380052"}'::jsonb,
-    now()
   )
 on conflict (id) do update
 set

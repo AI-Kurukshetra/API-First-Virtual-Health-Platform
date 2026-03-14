@@ -1,3 +1,6 @@
+delete from consultations
+where org_id = '11111111-1111-1111-1111-111111111111';
+
 insert into consultations (
   id,
   org_id,

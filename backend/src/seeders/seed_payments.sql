@@ -1,3 +1,6 @@
+delete from payments
+where org_id = '11111111-1111-1111-1111-111111111111';
+
 insert into payments (
   id,
   org_id,

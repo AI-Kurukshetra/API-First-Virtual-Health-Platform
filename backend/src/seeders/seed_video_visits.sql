@@ -1,3 +1,12 @@
+delete from video_visit_signals
+where visit_id in (
+  select id from video_visits
+  where org_id = '11111111-1111-1111-1111-111111111111'
+);
+
+delete from video_visits
+where org_id = '11111111-1111-1111-1111-111111111111';
+
 insert into video_visits (
   id,
   org_id,
@@ -10,6 +19,7 @@ insert into video_visits (
   doctor_joined_at,
   patient_joined_at,
   started_at,
+  ended_at,
   transcript_text,
   ai_note_payload,
   created_at,
@@ -22,12 +32,13 @@ values
     '30111111-1111-1111-1111-111111111111',
     '22222222-2222-2222-2222-222222222222',
     '55555555-5555-5555-5555-555555555555',
-    'waiting',
+    'ended',
     false,
     false,
     now() - interval '10 hours',
     now() - interval '10 hours',
     now() - interval '10 hours',
+    now() - interval '9 hours 30 minutes',
     'Patient reports recurring frontal headache for around three weeks. Headache worsens after long screen exposure and improves slightly with rest. No red flag symptoms were reported in this follow-up call.',
     '{
       "chief_complaint": "Recurring frontal headache",
@@ -53,6 +64,7 @@ set
   doctor_joined_at = excluded.doctor_joined_at,
   patient_joined_at = excluded.patient_joined_at,
   started_at = excluded.started_at,
+  ended_at = excluded.ended_at,
   transcript_text = excluded.transcript_text,
   ai_note_payload = excluded.ai_note_payload,
   created_at = excluded.created_at,

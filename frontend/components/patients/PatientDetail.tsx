@@ -330,6 +330,15 @@ export default function PatientDetail({ patientId }: { patientId: string }) {
     setPrescriptionError(null);
   }, [selectedPrescription?.id, selectedConsultation?.id]);
 
+  React.useEffect(() => {
+    if (activeTab !== 'consultations') return;
+    if (!selectedAppointment || selectedAppointment.availability?.mode !== 'video') return;
+    if (selectedConsultation) return;
+    if (autoPulledAppointmentIdsRef.current.has(selectedAppointment.id)) return;
+
+    void handlePullAiDraftFromVisit({ silent: true, auto: true });
+  }, [activeTab, selectedAppointment?.id, selectedAppointment?.availability?.mode, selectedConsultation?.id]);
+
   if (loading) {
     return (
       <Card className="animate-pulse">
@@ -476,15 +485,6 @@ export default function PatientDetail({ patientId }: { patientId: string }) {
       'noopener,noreferrer'
     );
   }
-
-  React.useEffect(() => {
-    if (activeTab !== 'consultations') return;
-    if (!selectedAppointment || selectedAppointment.availability?.mode !== 'video') return;
-    if (selectedConsultation) return;
-    if (autoPulledAppointmentIdsRef.current.has(selectedAppointment.id)) return;
-
-    void handlePullAiDraftFromVisit({ silent: true, auto: true });
-  }, [activeTab, selectedAppointment?.id, selectedAppointment?.availability?.mode, selectedConsultation?.id]);
 
   async function handleSavePrescription() {
     if (!selectedConsultation) {

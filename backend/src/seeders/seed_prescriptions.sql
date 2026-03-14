@@ -1,3 +1,12 @@
+delete from prescription_items
+where prescription_id in (
+  select id from prescriptions
+  where org_id = '11111111-1111-1111-1111-111111111111'
+);
+
+delete from prescriptions
+where org_id = '11111111-1111-1111-1111-111111111111';
+
 insert into prescriptions (
   id,
   org_id,
@@ -43,12 +52,6 @@ set
   created_at = excluded.created_at,
   updated_at = excluded.updated_at;
 
-delete from prescription_items
-where prescription_id in (
-  '50111111-1111-1111-1111-111111111111',
-  '50222222-2222-2222-2222-222222222222'
-);
-
 insert into prescription_items (
   id,
   prescription_id,
@@ -79,6 +82,19 @@ values
   (
     '51222222-2222-2222-2222-222222222222',
     '50111111-1111-1111-1111-111111111111',
+    'Pantoprazole',
+    '40 mg',
+    '1 tablet',
+    'Once daily',
+    '3 days',
+    'Oral',
+    'Before breakfast',
+    'Take on an empty stomach if acidity symptoms are present.',
+    1
+  ),
+  (
+    '51333333-3333-3333-3333-333333333333',
+    '50111111-1111-1111-1111-111111111111',
     'ORS / Hydration support',
     '1 sachet',
     '1 sachet in water',
@@ -87,7 +103,7 @@ values
     'Oral',
     'Any time',
     'Increase overall fluid intake through the day.',
-    1
+    2
   ),
   (
     '52111111-1111-1111-1111-111111111111',
@@ -114,4 +130,17 @@ values
     'At night',
     'May cause mild drowsiness in some patients.',
     1
+  ),
+  (
+    '52333333-3333-3333-3333-333333333333',
+    '50222222-2222-2222-2222-222222222222',
+    'Hydrocortisone cream',
+    '1%',
+    'Thin layer',
+    'Twice daily',
+    '5 days',
+    'Topical',
+    'Morning and evening',
+    'Apply sparingly and avoid broken skin.',
+    2
   );
